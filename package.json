@@ -1,0 +1,20 @@
+{
+	"name": "tbs-node-sdk",
+	"version": "1.0.0",
+	"description": "A sample to demo how to authenticate and list business using TaxBandits API",
+	"main": "server.js",
+	"scripts": {
+		"server": "nodemon server.js"
+	},
+	"author": "Naga Palanisamy",
+	"license": "ISC",
+	"devDependencies": {
+		"nodemon": "^2.0.7"
+	},
+	"dependencies": {
+		"axios": "^0.21.1",
+		"config": "^3.3.3",
+		"express": "^4.17.1",
+		"jsonwebtoken": "^8.5.1"
+	}
+}

@@ -1,9 +1,14 @@
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
 const config = require('config');
+const NodeCache = require('node-cache');
 
 let jwsToken = null;
 let accessToken = null;
+//cache it for 59 mins
+const myCache = new NodeCache();
+const KEY_TBSTOKEN = 'KEY_TBSTOKEN';
+const cacheDuration = 59 * 60 * 60;
 
 //This function generates the authentication JWS token
 const generateJws = () => {
@@ -41,12 +46,19 @@ const fetchAccessToken = async () => {
 	}
 };
 
-//wrapper function
-const auth = async () => {
-	generateJws();
-	await fetchAccessToken();
+//wrapper function as middleware
+exports.setAccessToken = async (req, res, next) => {
+	const cacheValue = myCache.get(KEY_TBSTOKEN);
 
-	return accessToken;
+	if (cacheValue !== undefined) {
+		req.TBSAccessToken = myCache.get(KEY_TBSTOKEN);
+	} else {
+		generateJws();
+		await fetchAccessToken();
+		myCache.set(KEY_TBSTOKEN, accessToken, [cacheDuration]);
+
+		req.TBSAccessToken = accessToken;
+	}
+
+	next();
 };
-
-module.exports = auth;

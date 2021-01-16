@@ -6,8 +6,9 @@ const app = express();
 //init middleware
 app.use(express.json({ extended: false }));
 
-//Define routes for the businesses.
+//Define routes for different endpoints
 app.use('/api/businesses', require('./routes/businesses'));
+app.use('/api/w9', require('./routes/w9'));
 
 //add error handler middleware
 app.use(errorHandler);

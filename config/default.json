@@ -1,7 +1,7 @@
 {
-	"jwtKey": "your client secret",
-	"jwtClientId": "your client id",
-	"jwtUserToken": "your user token",
+	"jwtKey": "gdBav7Ko1OHs1qrfrZLwiA",
+	"jwtClientId": "89c226b9aac7ce1b",
+	"jwtUserToken": "7fbb4b839cab4439a8fa77b69dcbbfff",
 	"jwtExpirySeconds": 216000,
 	"authUrl": "https://testoauth.expressauth.net/v2/tbsauth",
 	"apiUrl": "https://testapi.taxbandits.com/v1.6.1"

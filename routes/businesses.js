@@ -1,16 +1,18 @@
 const express = require('express');
-const auth = require('../utils/auth');
 const config = require('config');
 const axios = require('axios');
 const ErrorResponse = require('../utils/errorResponse');
 const router = express.Router();
+const { setAccessToken } = require('../middleware/setToken');
 
 //  @route  GET api/businesses
 //  @desc   GET all businesses
 //  @access Private
-router.get('/', async (req, res, next) => {
+router.get('/', setAccessToken, async (req, res, next) => {
 	//get the access token from the auth server
-	const bearerToken = await auth();
+	// const bearerToken = await auth();
+	const bearerToken = req.TBSAccessToken;
+
 	const options = {
 		headers: {
 			Authorization: `Bearer ${bearerToken}`,
@@ -33,8 +35,8 @@ router.get('/', async (req, res, next) => {
 //  @route  POST api/businesses
 //  @desc   Create a single buisness
 //  @access Private
-router.post('/', async (req, res, next) => {
-	const bearerToken = await auth();
+router.post('/', setAccessToken, async (req, res, next) => {
+	const bearerToken = req.TBSAccessToken;
 	const options = {
 		headers: {
 			Authorization: `Bearer ${bearerToken}`,

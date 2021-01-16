@@ -24,10 +24,13 @@ $ npm run server
 
 ## Configuration
 
-You need to signup with TaxBandits Sandbox Developer Console at https://sandbox.taxbandits.com to get the keys to run the SDK. See below for more directions.
+You need to signup with TaxBandits Sandbox Developer Console at https://sandbox.taxbandits.com to get the keys to run the SDK. See below for more directions:
+
 ​
-**important**
-Create a folder called 'config' at the root and a file called 'default.json' under the 'config' folder to add your client secret, client id, user token and auth/api endpoints. The file should look like this:
+**Important**
+
+Create a folder called 'config' at the root and a file called 'default.json' under the 'config' folder to add your client secret, client id, user token and auth/api endpoints.
+The file should look like this:
 
 ```
 {
@@ -46,12 +49,13 @@ Create a folder called 'config' at the root and a file called 'default.json' und
 ### To get the sandbox keys:
 
 ​
-Go to Sandbox Developer console: https://sandbox.taxbandits.com.
-​
-Signup or signin to Sandbox
-​
-Navigate to Settings and then to API Credentials. Copy Client Id, Client Secret and User Token.
-​
+
+- Go to Sandbox Developer console: https://sandbox.taxbandits.com.
+  ​
+- Signup or signin to Sandbox
+  ​
+- Navigate to Settings and then to API Credentials. Copy Client Id, Client Secret and User Token.
+  ​
 
 ### The sandbox urls: (Please make sure to use the right versions)
 

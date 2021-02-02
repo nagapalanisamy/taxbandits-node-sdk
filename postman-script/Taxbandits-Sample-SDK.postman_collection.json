@@ -15,14 +15,9 @@
 						"header": [],
 						"url": {
 							"raw": "localhost:9000/api/businesses",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "9000",
-							"path": [
-								"api",
-								"businesses"
-							]
+							"path": ["api", "businesses"]
 						},
 						"description": "This gets all the businesses from the account. "
 					},
@@ -41,7 +36,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"BusinessNm\": \"Test Inc\",\n    \"Ein\": 345678912,\n    \"Email\": \"naga@spanllc.com\",\n    \"ContactNm\": \"Naga Palanisamy\",\n    \"Phone\": \"704-123-4567\",\n    \"Address1\": \"202 Main st\",\n    \"City\": \"Rock Hill\",\n    \"State\": \"SC\",\n    \"ZipCd\": \"29730\"\n    \n    \n\n}",
+							"raw": "{\n    \"BusinessNm\": \"Test Inc\",\n    \"Ein\": 345678913,\n    \"Email\": \"naga@spanllc.com\",\n    \"ContactNm\": \"Naga Palanisamy\",\n    \"Phone\": \"704-123-4567\",\n    \"Address1\": \"202 Main st\",\n    \"City\": \"Rock Hill\",\n    \"State\": \"SC\",\n    \"ZipCd\": \"29730\"\n    \n    \n\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -51,17 +46,30 @@
 						"url": {
 							"raw": "http://localhost:9000/api/businesses/",
 							"protocol": "http",
-							"host": [
-								"localhost"
-							],
+							"host": ["localhost"],
 							"port": "9000",
-							"path": [
-								"api",
-								"businesses",
-								""
-							]
+							"path": ["api", "businesses", ""]
 						},
 						"description": "Creates a single business(payer) to the account"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "W9",
+			"item": [
+				{
+					"name": "Get W9 Link",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9000/api/w9/getW9Url/123456",
+							"host": ["localhost"],
+							"port": "9000",
+							"path": ["api", "w9", "getW9Url", "123456"]
+						}
 					},
 					"response": []
 				}

@@ -20,9 +20,9 @@ router.get('/getW9Url/:payeeId', setAccessToken, async (req, res, next) => {
 			Accept: 'application/json',
 		},
 	};
-	const endPoint = `${config.get(
-		'apiUrl'
-	)}/Utility/FormW9Iframe?PayeeIdentifier=${req.params.payeeId}`;
+	const endPoint = `${config.get('apiUrl')}/FormW9/GetW9Url?PayeeIdentifier=${
+		req.params.payeeId
+	}`;
 
 	try {
 		const output = await axios.get(endPoint, options);

@@ -8,7 +8,7 @@ let accessToken = null;
 //cache it for 59 mins
 const myCache = new NodeCache();
 const KEY_TBSTOKEN = 'KEY_TBSTOKEN';
-const cacheDuration = 59 * 60 * 60;
+const cacheDuration = 59 * 60;
 
 //This function generates the authentication JWS token
 const generateJws = () => {
@@ -49,7 +49,8 @@ const fetchAccessToken = async () => {
 //wrapper function as middleware
 exports.setAccessToken = async (req, res, next) => {
 	const cacheValue = myCache.get(KEY_TBSTOKEN);
-
+	console.log('cacheValue TTL :>> ', myCache.getTtl(KEY_TBSTOKEN));
+	console.log('cache Statistics :>> ', myCache.getStats());
 	if (cacheValue !== undefined) {
 		req.TBSAccessToken = myCache.get(KEY_TBSTOKEN);
 	} else {

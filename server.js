@@ -11,7 +11,7 @@ app.use('/api/businesses', require('./routes/businesses'));
 app.use('/api/w9', require('./routes/w9'));
 
 //add error handler middleware
-app.use(errorHandler);
+//app.use(errorHandler);
 
 const PORT = process.env.PORT || 9000;
 

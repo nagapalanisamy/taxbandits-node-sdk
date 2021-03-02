@@ -1,7 +1,7 @@
 const express = require('express');
 const config = require('config');
 const axios = require('axios');
-const ErrorResponse = require('../utils/errorResponse');
+
 const router = express.Router();
 const { setAccessToken } = require('../middleware/setToken');
 
@@ -20,15 +20,13 @@ router.get('/', setAccessToken, async (req, res, next) => {
 			Accept: 'application/json',
 		},
 	};
-	const endPoint = `${config.get(
-		'apiUrl'
-	)}/Business/List?Page=1&PageSize=100&FromDate=01/01/2021&ToDate=01/01/2030`;
+	const endPoint = `${config.get('apiUrl')}/Business/List`;
 	try {
 		const output = await axios.get(endPoint, options);
 
 		res.status(200).send(output.data.Businesses);
 	} catch (err) {
-		return next(new ErrorResponse('No businesses found', 404));
+		res.status(err.response.status).send(err.response.data);
 	}
 });
 
@@ -81,12 +79,7 @@ router.post('/', setAccessToken, async (req, res, next) => {
 
 		res.status(200).send(output.data);
 	} catch (err) {
-		return next(
-			new ErrorResponse(
-				JSON.stringify(err.response.data.Errors),
-				err.response.data.StatusCode
-			)
-		);
+		res.status(err.response.status).send(err.response.data);
 	}
 });
 

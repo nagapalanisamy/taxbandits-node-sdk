@@ -6,7 +6,7 @@
 This is a sample based on Node Js, Express, Jsonwebtoken and axios to show how to authenticate and handshake with TaxBandits API. This sample includes:
 
 - An endpoint which returns the businesses
-- Create Buisness
+- Create Business
 - Endpoint to generate the W9 embed link
 - Uses caching to cache the accesstoken
 
